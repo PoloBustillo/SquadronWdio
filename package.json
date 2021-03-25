@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio run ./wdio.conf.js"
+    "test": "wdio run ./wdio.conf.js",
+    "test:docker": "wdio run ./wdio.docker.conf.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://PoloBustillo:Gal22v10%4001@github.com/PoloBustillo/SquadronWdio.git"
+    "url": ""
   },
   "author": "PoloBustillo",
   "license": "ISC",
