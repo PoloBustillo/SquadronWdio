@@ -1,15 +1,30 @@
 const LoginPage = require("../pageobjects/login.page");
 const DashboardPage = require("../pageobjects/dashboard.page");
 
-describe("Squadron", () => {
-  it("should login with valid credentials", () => {
-    browser.url("");
-    LoginPage.login("polo_01", "24");
+  const STUDENTS=15;
+
+  describe("Squadron", () => {
+    for (let index = 1; index <= STUDENTS; index++) {
+      it(`should login with polo_${index} valid credentials`, () => {
+        browser.url("");
+        LoginPage.login(`polo_${index.toString().padStart(2, '0')}`, "24");
+      });
+      it(`should enter activities for polo_${index}`, () => {
+        DashboardPage.clickActivities();
+      });
+      it(`should assign activity for polo_${index}`, () => {
+        DashboardPage.assignActivity();
+      });
+      it(`should go to world tasks and complete those for polo_${index}`, () => {
+        DashboardPage.goToWorldActivities();
+        DashboardPage.completeActivity();
+      });
+      it("should close session", () => {
+        DashboardPage.logOff();
+        
+      });
+    }
   });
-  it("should enter activities", () => {
-    DashboardPage.clickActivities();
-  });
-  it("should assign activity", () => {
-    DashboardPage.assignActivity();
-  });
-});
+  
+
+
