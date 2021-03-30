@@ -8,7 +8,7 @@ class DashboardPage extends Page {
     return $("//div[3]/ul/li[2]/a");
   }
   get assignButton() {
-    return $("//div[3]/form/input[2]");
+    return $(".uk-card-footer input");
   }
   get menuButton() {
     return $(".uk-text-muted > svg");
